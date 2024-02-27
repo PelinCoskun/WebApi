@@ -18,10 +18,18 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-      public  IActionResult Add(CreateBrandRequest createBrandRequest)
+        public IActionResult Add(CreateBrandRequest createBrandRequest)
         {
-           CreatedBrandResponse createdBrandResponse= _brandService.Add(createBrandRequest);
+            CreatedBrandResponse createdBrandResponse = _brandService.Add(createBrandRequest);
             return Ok(createdBrandResponse);
+        }
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+           return Ok(_brandService.GetAll());
+
+
         }
     }
 }
